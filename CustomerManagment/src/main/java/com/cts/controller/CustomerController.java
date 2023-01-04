@@ -61,4 +61,9 @@ public class CustomerController {
     public String helloAPI(){
         return "Welcome to Pune";
     }
+
+    @GetMapping("/say")
+    public String sayHello(){
+        return "Say Hello";
+    }
 }

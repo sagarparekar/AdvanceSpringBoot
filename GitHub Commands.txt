@@ -1,0 +1,30 @@
+Steps for github==> For create feature Branch: git checkout -b new-feature
+
+
+1. Go to- github.com and login 
+
+2. Create Repository on Github
+
+3. Copy the Repo URL
+
+4. Create folder in local Disk and type cmd for same folder location
+
+5. git clone URL[paste for example - https://github.com/sagarparekar/AdvanceSpringBoot.git]
+
+6. Create application and add application inside local git folder
+
+7. Import same application in your intellij or eclipse from same folder
+
+8. git add .
+
+9. git commit -m "Initial commit for spring boot app"
+
+10. git push
+
+11. git branch branch_name[feature-loanv1]
+
+12. Add Functionality go ahead and commit the changes then push
+
+13. Right click on project git merge and select feature-loanv1
+
+14. git push

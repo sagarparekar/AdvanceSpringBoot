@@ -23,6 +23,8 @@ Steps for github==> For create feature Branch: git checkout -b new-feature
 
 11. git branch branch_name[feature-loanv1]
 
+Note - to switch main branch to user1 branch use command- git checkout user1
+
 12. Add Functionality go ahead and commit the changes then push
 
 13. Right click on project git merge and select feature-loanv1

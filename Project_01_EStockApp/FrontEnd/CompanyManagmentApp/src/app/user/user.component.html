@@ -1,0 +1,23 @@
+
+<div class="container"  style="display: flex; justify-content: center; align-items: center;max-width: 75%;height: 50vh;">
+<div >
+    <h2>Please fill in this form to register!! </h2>
+      <div>
+      <form #userForm="ngForm" (ngSubmit)="addUser()">
+      
+        <input name="id" class="form-control" type="number" placeholder="Enter Id " [(ngModel)]="userObj.id" required>
+      <br>
+      <input name="username" class="form-control" type="text" placeholder="Enter Username " [(ngModel)]="userObj.username" required>
+      <br>
+      
+      <input name="password" class="form-control" type="password" placeholder="Enter Uassword" [(ngModel)]="userObj.password" required>
+      <br>
+      
+      <button type="submit" class="btn btn-primary" >Register</button>
+      
+      </form>
+      </div>
+      
+  </div>
+
+</div>

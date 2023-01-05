@@ -1,0 +1,152 @@
+<div style="text-align: left; align-items: left;margin-top: 20px;">
+  <div class="container">
+    <h2
+      style="text-align: center;  color: black; border: 1px solid black ; background-color:aquamarine;border-collapse: collapse;">
+      Stock Details</h2>
+  </div>
+</div>
+<div class="container">
+  <table class="table table-condensed">
+    <tbody>
+      <tr class="table-striped">
+        <th></th>
+        <th>Company Code : </th>
+        <td>{{companyDetails.companyCode}}</td>
+        <td></td>
+      </tr>
+      <tr class="table-striped">
+        <th></th>
+        <th>Company Name :</th>
+        <td>{{companyDetails.companyName}}</td>
+        <td></td>
+      </tr>
+      <tr class="table-striped">
+        <th></th>
+        <th>Company CEO :</th>
+        <td>{{companyDetails.ceoName}}</td>
+        <td></td>
+      </tr>
+      <tr class="table-striped">
+        <th></th>
+        <th>Company Turnover:</th>
+        <td>{{companyDetails.turnover}}</td>
+        <td></td>
+      </tr>
+      <tr class="table-striped">
+        <th></th>
+        <th >Company Website :</th>
+        <td>{{companyDetails.website}}</td>
+        <td></td>
+      </tr>
+      <tr class="table-striped">
+        <th></th>
+        <th>Company StockExchange :</th>
+        <td>{{companyDetails.stockExchange}}</td>
+        <td></td>
+      </tr>
+      <tr class="table-striped">
+        <th></th>
+        <th>Company StockPrice :</th>
+        <td>{{companyDetails.stockPrice}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="panel panel-primary">
+  <div class="container">
+    <label></label>
+    <table class="table" style="background-color: whitesmoke;">
+      <thead>
+      </thead>
+      <tbody>
+        <tr class="table-success">
+          <th></th>
+          <th >Average Stock Price:</th>
+          <td>{{AvgStockPrice}}</td>
+          <td></td>
+        </tr>
+        <tr class="table-striped">
+          <th></th>
+          <th>Maximum Stock Price:</th>
+          <td>{{maxStockPrice}}</td>
+          <td></td>
+        </tr>
+        <tr class="table-primary">
+          <th></th>
+          <th>Minimum Stock Price:</th>
+          <td>{{minStockPrice}}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+    <div class="container" style="margin-left: 65%;">
+      <!-- <h3 style="color: brown;">Select Date Range to view Stock</h3> -->
+      <input placeholder="Select Date" type="date"  [(ngModel)]="stockObj.timeStamp">
+      &nbsp; &nbsp;
+      <button style="background-color: lightskyblue" (click)="stockFilter(stockObj.timeStamp)">Filter StockPrice By Date</button>
+    </div>
+      <br>
+   <div class="container" *ngIf="show">
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-primary">
+        <th>Tranction Id</th>
+        <th>Stock Price</th>
+        <th>TimeStamp</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let stock of companyDetails.stockList">
+        <td >{{stock.transactionId}}</td>
+        <td >{{stock.stockPrice}}</td>
+        <td >{{stock.timeStamp | date:"dd/MM/yyyy"}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+  <script>
+    $(document).ready(function () {
+      $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myList li").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
+<br>
+<div class="container" *ngIf="showByFilter">
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-primary">
+        <th>Tranction Id</th>
+        <th>Stock Price</th>
+        <th>TimeStamp</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let stock of filterStock">
+        <td >{{stock.transactionId}}</td>
+        <td >{{stock.stockPrice}}</td>
+        <td >{{stock.timeStamp | date:"dd/MM/yyyy"}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+
+
+
+<!-- <router-outlet></router-outlet> -->
+
+<!-- | sortgrid: 'timeStamp' -->
+<!-- *ngIf="ngif(stock)" -->

@@ -1,0 +1,210 @@
+
+
+<div class="container" style="padding: 10px; size: 20px;">
+    <div class="row">
+      <div class="col-sm-6">
+        <button  class="btn btn-success" data-bs-toggle="modal" style="background-color: cornflowerblue;" data-bs-target="#addCompanyModal" type="submit">Register
+            Company</button>&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-info" type="button" style="align-items: flex-end;" (click)="getCompanyList()">View All</button>
+      </div>
+      <div class="col-sm-6" >
+        <div id="searchDiv" style="align-items: flex-end;">
+            <input name="searchInput"  style="margin: 5px;" type="number" [(ngModel)]="companym.companyCode">
+            <button type="button" class="btn btn-info"(click)="getCompanyById(companym.companyCode)">Get Company By ID</button>&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" style="background-color: lightcoral;" (click)="navigateToLogout()">Logout</button>
+        </div>
+        
+      </div>
+    </div>
+</div>
+
+<!-- Add company Modal -->
+<div class="modal fade" id="addCompanyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Enter company details here</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: lightgray;">
+                <!-- <h1>Enter company details here</h1> -->
+                <div>
+                    <form #companyForm="ngForm">
+
+                        <input name="companyCode" class="form-control" type="number" placeholder="Enter company id"
+                            [(ngModel)]="companyObj.companyCode" required>
+                        <br>
+
+                        <input name="companyName" class="form-control" type="text"
+                            placeholder="Enter company companyName" [(ngModel)]="companyObj.companyName" required>
+                        <br>
+
+                        <input name="ceoName" class="form-control" type="text" placeholder="Enter company ceoName"
+                            [(ngModel)]="companyObj.ceoName" required>
+                        <br>
+
+                        <input name="website" class="form-control" type="text" placeholder="Enter company website"
+                            [(ngModel)]="companyObj.website" required>
+                        <br>
+
+                        <input name="stockExchange" class="form-control" type="text"
+                            placeholder="Enter company stockExchange" [(ngModel)]="companyObj.stockExchange" required>                          
+                        <br>
+                      
+                        <!-- <select name="stockExchange" class="form-control" [(ngModel)]="editedCompany.stockExchange" required>
+                            <option  >NSE</option>
+                            <option >BSE</option>
+                        </select>
+                        <br> -->
+
+                        <input name="turnover" class="form-control" type="number" placeholder="Enter company turnover"
+                            [(ngModel)]="companyObj.turnover" required>
+                        <br>
+
+                        <input name="currentStockPrice" class="form-control" type="number"
+                            placeholder="Enter company currentStockPrice" [(ngModel)]="companyObj.currentStockPrice"
+                            required>
+                        <br>
+
+                        <button type="button" class="btn btn-primary" (click)="addCompanyDetails()" data-bs-dismiss="modal">Submit</button>
+                    </form>
+
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="updateModalLabel">Update Company</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background-color: lightgray;">
+
+                <!-- <h1>Update company details here</h1> -->
+
+                <div>
+                    <form #companyForm="ngForm">
+
+                        <input name="companyCode" class="form-control" type="number" placeholder="Enter company id"
+                            [(ngModel)]="editedCompany.companyCode" required>
+                        <br>
+
+                        <input name="companyName" class="form-control" type="text"
+                            placeholder="Enter company companyName" [(ngModel)]="editedCompany.companyName" required>
+                        <br>
+
+                        <input name="ceoName" class="form-control" type="text" placeholder="Enter company ceoName"
+                            [(ngModel)]="editedCompany.ceoName" required>
+                        <br>
+
+                        <input name="website" class="form-control" type="text" placeholder="Enter company website"
+                            [(ngModel)]="editedCompany.website" required>
+                        <br>
+
+                         <input name="stockExchange" class="form-control" type="text"
+                            placeholder="Enter company stockExchange" [(ngModel)]="editedCompany.stockExchange" required>     
+                        <br>
+                     
+                        <!-- <select name="stockExchange" class="form-control"  [(ngModel)]="editedCompany.stockExchange" required>
+                            <option disabled selected>Select Stock Exchange</option>
+                            <option>NSE</option>
+                            <option>BSE</option>
+                        </select>
+                        <br> -->
+
+
+                        <input name="turnover" class="form-control" type="number" placeholder="Enter company turnover"
+                            [(ngModel)]="editedCompany.turnover" required>
+                        <br>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateCompany(editedCompany)">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mat-elevation-z8" *ngIf="show">
+<table class="table" style="background-color: white;">
+    
+    <thead>
+        <tr style="background-color: aquamarine">
+            <th scope="col">CompanyCode</th>
+            <th scope="col">CompanyName</th>
+            <th scope="col">CompanyCEO</th>
+            <th scope="col">Turnover</th>
+            <th scope="col">Website</th>
+            <th scope="col">StockExchange</th>
+            <th scope="col">StockPrice</th>
+            <th scope="col"></th>
+            <th scope="col">Action</th>
+            <th scope="col"></th>
+            <!-- <th scope="col"></th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of companyarr " >
+            
+            <td><a [routerLink]="['/company', b.companyCode]">{{b.companyCode}}</a></td>
+            <td>{{b.companyName}}</td>
+            <td>{{b.ceoName}}</td>
+            <td>{{b.turnover}}</td>
+            <td>{{b.website}}</td>
+            <td>{{b.stockExchange}}</td>
+            <td>{{b.currentStockPrice}}</td>
+            <td><button class="btn btn-info" style="background-color: whitesmoke; color: blue;" [routerLink]="['/putstock',b.companyCode]">Add Stock</button></td>
+            <td><button class="btn btn-success" style="background-color: whitesmoke; color: blue;" data-bs-toggle="modal" data-bs-target="#updateModal" (click)="updateCompany(b)"
+                type="submit">UpdateCompany</button></td>
+            <td><button type="button" class="btn btn-danger mx-3" style="background-color: whitesmoke; color: red;" (click)="deleteCompany(b.companyCode)">Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+<!--search table-->
+
+<div id="searchDiv" *ngIf="showById">
+<table class="table" style="background-color: white;">
+    
+    <thead>
+        <tr>
+            <th scope="col">CompanyCode</th>
+            <th scope="col">CompanyName</th>
+            <th scope="col">CompanyCEO</th>
+            <th scope="col">Turnover</th>
+            <th scope="col">Website</th>
+            <th scope="col">StockExchange</th>
+            <th scope="col">StockPrice</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <!-- <th scope="col"></th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr  >
+            
+            <td><a [routerLink]="['/company',code]">{{code}}</a></td>
+            <td>{{name}}</td>
+            <td>{{ceo}}</td>
+            <td>{{tover}}</td>
+            <td>{{website}}</td>
+            <td>{{stexchange}}</td>
+            <td>{{sprice}}</td>
+            <td><button class="btn btn-info" style="background-color: whitesmoke; color:blue;" [routerLink]="['/putstock',code]">Add Stock</button></td>
+            <td><button class="btn btn-success" data-bs-toggle="modal" style="background-color: whitesmoke; color: blue;" data-bs-target="#updateModal" (click)="updateCompany(code)"
+                type="submit">UpdateCompany</button></td>
+            <td><button type="button" class="btn btn-danger mx-3" style="background-color: whitesmoke; color: red;" (click)="deleteCompany(code)">Delete</button>
+            </td>
+           
+        </tr>
+    </tbody>
+</table>
+</div>
+<!-- <app-stock></app-stock> -->
+<!-- <router-outlet></router-outlet> -->

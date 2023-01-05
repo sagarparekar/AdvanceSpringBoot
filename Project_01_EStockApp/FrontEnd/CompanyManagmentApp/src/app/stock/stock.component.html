@@ -1,0 +1,25 @@
+<div class="container" style="display: flex; justify-content: center; align-items: center;max-width: 30%;height: 50vh;">
+
+<div class="modal-body" aria-hidden="true" style="background-color:darkgray;">
+  <h2 class="modal-title" id="exampleModalLabel" style=" margin-top: 10px;text-align: center;color: black" >Add stock Price</h2>
+ 
+  <div class="container">
+    
+  <form  #stockForm="ngForm" (ngSubmit)="addStock(stockObj.company_code_FK)">
+
+  <input name="company_code_FK" class="form-control" type="number" placeholder="Enter company" [(ngModel)]="stockObj.company_code_FK" required>
+  <br>
+
+  <input name="timeStamp" class="form-control" type="datetime-local" placeholder="Enter Date" [(ngModel)]="stockObj.timeStamp" required>
+  <br>
+
+  <input name="stockPrice" class="form-control" type="number" placeholder="Enter Stock currentStockPrice" [(ngModel)]="stockObj.stockPrice" required>
+  <br>
+  <button  type="submit" class="btn btn-primary">Add Stock Details </button>
+  <br>
+  <br>
+  </form>
+  </div>
+</div>
+</div>
+<!-- <router-outlet></router-outlet> -->

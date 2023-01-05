@@ -16,7 +16,7 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
 //  private apiPostLogin:string='https://ynssvrfb44.execute-api.us-west-2.amazonaws.com/Stage1/consume-login';
-  private apiPostLogin:string='http://localhost:8082/auth/user/login';
+  private apiPostLogin:string='http://localhost:8081/login';
   addLogin(login:Login):Observable<any>
   {
     

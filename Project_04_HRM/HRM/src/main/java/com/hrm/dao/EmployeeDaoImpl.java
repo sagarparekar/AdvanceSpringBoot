@@ -67,7 +67,14 @@ public class EmployeeDaoImpl {
         return employeeRepositoryImpl.findByEmpFirstName(empFirstName);
     }
 
+    // jdk1.8 feature streamAPI used where we are sorting employee by first name
     public List<Employee> sortByName(){
         return employeeRepositoryImpl.findAll().stream().sorted((e1,e2)->e1.getEmpFirstName().compareTo(e2.getEmpFirstName())).collect(Collectors.toList());
     }
+
+    //jdk1.8 feature used to filter employee salary
+    public List<Employee> filterDataBySalary(double empSalary){
+        return employeeRepositoryImpl.findAll().stream().filter(emp -> emp.getEmpSalary()>=empSalary).collect(Collectors.toList());
+    }
+
 }

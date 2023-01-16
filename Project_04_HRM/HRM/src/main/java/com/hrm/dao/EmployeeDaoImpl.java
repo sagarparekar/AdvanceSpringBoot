@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class EmployeeDaoImpl {
@@ -60,5 +61,13 @@ public class EmployeeDaoImpl {
 
         }
         return employeeList;
+    }
+
+    public List<Employee> getDataByFirstName(String empFirstName){
+        return employeeRepositoryImpl.findByEmpFirstName(empFirstName);
+    }
+
+    public List<Employee> sortByName(){
+        return employeeRepositoryImpl.findAll().stream().sorted((e1,e2)->e1.getEmpFirstName().compareTo(e2.getEmpFirstName())).collect(Collectors.toList());
     }
 }

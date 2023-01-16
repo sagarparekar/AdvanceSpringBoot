@@ -29,7 +29,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/savealldata")
-    public ResponseEntity<List<Employee>> saveAllData(@RequestBody List<Employee> employees) {
+    public ResponseEntity<List<Employee>> saveAllData(@Valid @RequestBody List<Employee> employees) {
         return new ResponseEntity<>(employeeServiceImpl.saveAllData(employees), HttpStatus.CREATED);
     }
 

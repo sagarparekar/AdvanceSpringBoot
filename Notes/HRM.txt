@@ -59,5 +59,21 @@ Theory Part -
 ==> Exception class use @ResponseStatus(value = HttpStatus.NOT_FOUND) to show message
 
 ==> In validator class use @ControllerAdvice 
+
+==>Swagger URL -> http://localhost:8080/swagger-ui.html
+
+==> Payload ->
+{
+  "empFirstName": "Rohan",
+  "empLastName": "patil",
+  "empAddress": "Mumbai",
+  "empSalary": 65000,
+  "empContactNumber": "+919121315566",
+  "empDOB": "08-07-2020",
+  "empEmailId": "rohan@gmail.com",
+  "empPassword": "rohan"
+}
+
+
 	
 	

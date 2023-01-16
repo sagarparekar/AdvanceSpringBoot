@@ -5,6 +5,7 @@ import com.hrm.repo.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,9 +35,30 @@ public class EmployeeDaoImpl {
         return employeeRepositoryImpl.saveAll(employees);
     }
 
+    // Optional is used to handle null pointer exception which is jdk1.8 feature
     public Optional<Employee> getDataById(int empId) {
         return employeeRepositoryImpl.findById(empId);
     }
 
+    public List<Employee> getAllData(){
+        return employeeRepositoryImpl.findAll();
+    }
 
+    public List<Employee> getDataByAnyInput(Employee employee){
+
+        List<Employee> employeeList=new ArrayList<>();
+
+        for (Employee emp: employeeRepositoryImpl.findAll()) {
+            if(emp.getEmpId()==employee.getEmpId()
+            || emp.getEmpFirstName().equals(employee.getEmpFirstName())
+            || emp.getEmpLastName().equals(employee.getEmpLastName())
+            || emp.getEmpContactNumber()==employee.getEmpContactNumber()
+            || emp.getEmpEmailId().equals(employee.getEmpEmailId())
+            || emp.getEmpSalary()==employee.getEmpSalary()){
+            employeeList.add(emp);
+            }
+
+        }
+        return employeeList;
+    }
 }

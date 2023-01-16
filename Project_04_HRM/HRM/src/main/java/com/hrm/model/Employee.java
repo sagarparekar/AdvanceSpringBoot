@@ -34,7 +34,7 @@ public class Employee {
     @Column(name = "emp_dob")
     @JsonFormat(pattern = "dd-MM-yyyy", timezone = "Asia/Kolkata")
     private Date empDOB;
-    @Column(name = "emp_email_id")
+    @Column(name = "emp_email_id", unique = true)
     @Email(message = "Email must be valid like abc11@gmail.com")
     private String empEmailId;
     @Column(name = "emp_password")

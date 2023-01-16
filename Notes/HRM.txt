@@ -1,0 +1,63 @@
+Spirng Boot - Exception Handling - Validations -swaggerUI
+
+Application - HRM
+
+Java Version - 17
+
+Functionality -
+1. signup
+2. signin
+3. getdatabyid
+4. getalldata
+5. saveBulkOfData
+6. getDataByName
+7. sortbyname
+8. filterbysalary
+9. getdatabyusinganyinput
+10. updatedata
+11. deletedatabyid
+12. deletealldata
+
+Dependencies -
+
+1. Spring Web
+2. Devtool
+3. Lombook
+4. MysQL 
+5. Data Jpa
+6. validations
+
+7. Swagger UI Manually
+
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.5.12</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		
+		
+		
+Theory Part -
+
+==> @Column - Give name to that perticular column & @JsonFormat for util date format
+
+==> @Column(name = "emp_dob")
+    @JsonFormat(pattern = "dd-MM-yyyy", timezone = "Asia/Kolkata")
+    private Date empDOB;
+
+==> Exception class use @ResponseStatus(value = HttpStatus.NOT_FOUND) to show message
+
+==> In validator class use @ControllerAdvice 
+	
+	

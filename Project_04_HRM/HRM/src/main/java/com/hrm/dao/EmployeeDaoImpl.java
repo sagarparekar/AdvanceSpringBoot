@@ -41,40 +41,53 @@ public class EmployeeDaoImpl {
         return employeeRepositoryImpl.findById(empId);
     }
 
-    public List<Employee> getAllData(){
+    public List<Employee> getAllData() {
         return employeeRepositoryImpl.findAll();
     }
 
-    public List<Employee> getDataByAnyInput(Employee employee){
+    public List<Employee> getDataByAnyInput(Employee employee) {
 
-        List<Employee> employeeList=new ArrayList<>();
+        List<Employee> employeeList = new ArrayList<>();
 
-        for (Employee emp: employeeRepositoryImpl.findAll()) {
-            if(emp.getEmpId()==employee.getEmpId()
-            || emp.getEmpFirstName().equals(employee.getEmpFirstName())
-            || emp.getEmpLastName().equals(employee.getEmpLastName())
-            || emp.getEmpContactNumber()==employee.getEmpContactNumber()
-            || emp.getEmpEmailId().equals(employee.getEmpEmailId())
-            || emp.getEmpSalary()==employee.getEmpSalary()){
-            employeeList.add(emp);
+        for (Employee emp : employeeRepositoryImpl.findAll()) {
+            if (emp.getEmpId() == employee.getEmpId()
+                    || emp.getEmpFirstName().equals(employee.getEmpFirstName())
+                    || emp.getEmpLastName().equals(employee.getEmpLastName())
+                    || emp.getEmpContactNumber() == employee.getEmpContactNumber()
+                    || emp.getEmpEmailId().equals(employee.getEmpEmailId())
+                    || emp.getEmpSalary() == employee.getEmpSalary()) {
+                employeeList.add(emp);
             }
 
         }
         return employeeList;
     }
 
-    public List<Employee> getDataByFirstName(String empFirstName){
+    public List<Employee> getDataByFirstName(String empFirstName) {
         return employeeRepositoryImpl.findByEmpFirstName(empFirstName);
     }
 
     // jdk1.8 feature streamAPI used where we are sorting employee by first name
-    public List<Employee> sortByName(){
-        return employeeRepositoryImpl.findAll().stream().sorted((e1,e2)->e1.getEmpFirstName().compareTo(e2.getEmpFirstName())).collect(Collectors.toList());
+    public List<Employee> sortByName() {
+        return employeeRepositoryImpl.findAll().stream().sorted((e1, e2) -> e1.getEmpFirstName().compareTo(e2.getEmpFirstName())).collect(Collectors.toList());
     }
 
     //jdk1.8 feature used to filter employee salary
-    public List<Employee> filterDataBySalary(double empSalary){
-        return employeeRepositoryImpl.findAll().stream().filter(emp -> emp.getEmpSalary()>=empSalary).collect(Collectors.toList());
+    public List<Employee> filterDataBySalary(double empSalary) {
+        return employeeRepositoryImpl.findAll().stream().filter(emp -> emp.getEmpSalary() >= empSalary).collect(Collectors.toList());
+    }
+
+    public Employee updateData(Employee employee) {
+        return employeeRepositoryImpl.save(employee);
+    }
+
+    // core java concept void doesnt return anything
+    public void deleteDataById(int empId) {
+        employeeRepositoryImpl.deleteById(empId);
+    }
+
+    public void deleteAllData() {
+        employeeRepositoryImpl.deleteAll();
     }
 
 }

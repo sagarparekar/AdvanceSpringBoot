@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,8 @@ public class EmployeeController {
     EmployeeServiceImpl employeeServiceImpl;
 
     @PostMapping("/signup")
-    public ResponseEntity<Employee> signUp(@RequestBody Employee employee) {
+    public ResponseEntity<Employee> signUp(@Valid @RequestBody Employee employee) {
+        log.info("**********TRYING TO SAVE DATA : "+employee.getEmpFirstName());
         Employee employee1 = employeeServiceImpl.signUp(employee);
         return new ResponseEntity<Employee>(employee1, HttpStatus.CREATED);
     }

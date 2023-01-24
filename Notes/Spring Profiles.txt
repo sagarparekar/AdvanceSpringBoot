@@ -1,0 +1,17 @@
+To deploy same spring boot application in different enviorment dev | prod | test
+
+Define property as in application.properties
+
+spring.profiles.active=dev
+
+where dev is envirment variable for developemnt enviorment.
+
+Define application.properties files for all enviorment in src/main/resources
+
+1. application-dev.properties
+2. application-prod.properties
+3. application-test.properties
+
+
+
+

@@ -1,0 +1,15 @@
+Project Managment Application
+
+Spring boot / mysql / JPA / validation / swagger
+
+1. getAllprojects
+2. getProjectById
+3. saveProject
+4. updateProject
+5. deleteProject
+6. getDataByAnyInput
+
+Exception Handling 
+
+1. RecordNOTFound
+2. DuplicateProjectName

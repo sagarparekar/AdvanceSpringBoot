@@ -18,4 +18,6 @@ public interface ProjectService {
     public void deleteProjectById(long projectId);
 
     public Optional<Project> getProjectById(long projectId);
+
+    public List<Project> getDataByAnyInput(Project project);
 }

@@ -46,4 +46,9 @@ public class ProjectController {
         projectServiceImpl.deleteProjectById(projectId);
         return ResponseEntity.ok("Project deleted successfully.....ProjectId =  " + projectId);
     }
+
+    @GetMapping("/getDataByAnyInput")
+    public ResponseEntity<List<Project>> getDataByAnyInput(@RequestBody Project project){
+        return ResponseEntity.ok(projectServiceImpl.getDataByAnyInput(project));
+    }
 }

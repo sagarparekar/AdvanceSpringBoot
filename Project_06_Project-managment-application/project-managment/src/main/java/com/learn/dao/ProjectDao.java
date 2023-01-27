@@ -17,4 +17,6 @@ public interface ProjectDao {
 
     public Optional<Project> getProjectById(long projectId);
 
+    public List<Project> getDataByAnyInput(Project project);
+
 }

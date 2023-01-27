@@ -55,4 +55,9 @@ public class ProjectServiceImpl implements ProjectService{
     public Optional<Project> getProjectById(long projectId) {
         return projectDaoImpl.getProjectById(projectId);
     }
+
+    @Override
+    public List<Project> getDataByAnyInput(Project project) {
+        return projectDaoImpl.getDataByAnyInput(project);
+    }
 }

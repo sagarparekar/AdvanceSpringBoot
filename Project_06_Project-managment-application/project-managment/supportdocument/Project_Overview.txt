@@ -2,6 +2,14 @@ Project Managment Application
 
 Spring boot / mysql / JPA / validation / swagger
 
+Project => fields
+
+projectId - Auto generated
+projectName - Unique
+stage
+description
+
+API =>
 1. getAllprojects
 2. getProjectById
 3. saveProject
@@ -13,3 +21,22 @@ Exception Handling
 
 1. RecordNOTFound
 2. DuplicateProjectName
+================================================
+Task 1 - Create employee entity with validation
+Employee => fields
+
+employeeId = Auto generated
+firstName = atleast 50 char
+lastName =atleast 50 char
+email = unique
+
+
+API =>
+1. getAllEmployees
+2. saveEmplyee
+3. updateEmployee
+4. deleteEmployee
+
+Task 2 - Many employee mapped to many projects
+
+

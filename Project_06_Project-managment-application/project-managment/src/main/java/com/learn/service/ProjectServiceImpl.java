@@ -29,7 +29,7 @@ public class ProjectServiceImpl implements ProjectService{
     @Override
     public Project updateProject(int projectId, Project project) throws RecordNotFoundException {
         Project project1 = projectDaoImpl.getProjectById(projectId).orElseThrow(() -> new RecordNotFoundException("Project Id does not exist"));
-        project1.setName(project.getName());
+        project1.setProjectName(project.getProjectName());
         project1.setStage(project.getStage());
         project1.setDescription(project.getDescription());
 

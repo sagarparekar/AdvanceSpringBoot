@@ -10,7 +10,7 @@ public class Project {
     private long projectId;
 
     @Column(unique = true)
-    private String name;
+    private String projectName;
 
     private String stage; //NOT STARTED, COMPLETED, INPROGRESS
 
@@ -20,8 +20,10 @@ public class Project {
 
     }
 
-    public Project(String name, String stage, String description) {
-        this.name = name;
+
+    public Project(long projectId, String projectName, String stage, String description) {
+        this.projectId = projectId;
+        this.projectName = projectName;
         this.stage = stage;
         this.description = description;
     }
@@ -34,12 +36,12 @@ public class Project {
         this.projectId = projectId;
     }
 
-    public String getName() {
-        return name;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public String getStage() {

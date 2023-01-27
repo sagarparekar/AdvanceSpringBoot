@@ -1,13 +1,10 @@
-package com.employee.controller;
+package com.learn.controller;
 
-import com.employee.model.Employee;
-import com.employee.service.EmployeeServiceImpl;
+import com.learn.entities.Employee;
+import com.learn.service.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeServiceImpl.getAllEmployee());
     }
 
-    @GetMapping("/saveEmployee")
+    @PostMapping("/saveEmployee")
     public ResponseEntity<Employee> saveEmployees(@RequestBody Employee employee){
         return ResponseEntity.ok(employeeServiceImpl.saveEmployee(employee));
     }

@@ -1,12 +1,12 @@
-package com.employee.model;
+package com.learn.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -16,16 +16,26 @@ public class Employee {
     private long employeeId;
 
     @NotBlank(message = "*** Must required employee first name")
-    @Size(min = 5, max = 20)
+    @Size(min = 1, max = 20)
     private String firstName;
 
     @NotBlank(message = "*** Must required employee last name")
-    @Size(min = 5, max = 20)
+    @Size(min = 1, max = 20)
     private String lastName;
 
     @Email(message = "*** Email must be required pattern abc@xyz.com")
     @NotBlank
     private String email;
+
+    @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST}, fetch =
+    FetchType.LAZY)
+    @JoinTable(name="project_employee",
+            joinColumns = @JoinColumn(name = "employeeId"),
+            inverseJoinColumns = @JoinColumn(name = "projectId"))
+
+    @JsonIgnore
+    private List<Project> projects;
+
 
     public Employee(long employeeId, String firstName, String lastName, String email) {
         this.employeeId = employeeId;
@@ -64,5 +74,9 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Employee(){
+
     }
 }

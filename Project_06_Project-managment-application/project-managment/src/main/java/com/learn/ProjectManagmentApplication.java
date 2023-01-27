@@ -1,12 +1,10 @@
-package com.project;
+package com.learn;
 
-import com.employee.controller.EmployeeController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Import;
 
-@ComponentScan({"com.project.employee"})
+//@ComponentScan(basePackages = {"com.project"})
 @SpringBootApplication
 public class ProjectManagmentApplication {
 

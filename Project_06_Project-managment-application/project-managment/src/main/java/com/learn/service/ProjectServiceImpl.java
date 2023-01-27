@@ -1,10 +1,10 @@
-package com.project.service;
+package com.learn.service;
 
-import com.project.dao.ProjectDaoImpl;
-import com.project.entities.Project;
-import com.project.exception.DuplicateProjectNameException;
-import com.project.exception.RecordNotFoundException;
-import com.project.repo.ProjectRepo;
+import com.learn.dao.ProjectDaoImpl;
+import com.learn.entities.Project;
+import com.learn.exception.DuplicateProjectNameException;
+import com.learn.exception.RecordNotFoundException;
+import com.learn.repo.ProjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

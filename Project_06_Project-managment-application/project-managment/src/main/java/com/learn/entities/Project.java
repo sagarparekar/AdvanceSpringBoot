@@ -1,6 +1,9 @@
-package com.project.entities;
+package com.learn.entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Project {
@@ -15,6 +18,15 @@ public class Project {
     private String stage; //NOT STARTED, COMPLETED, INPROGRESS
 
     private String description;
+
+    @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST}, fetch =
+            FetchType.LAZY)
+    @JoinTable(name="project_employee",
+            joinColumns = @JoinColumn(name = "projectId"),
+            inverseJoinColumns = @JoinColumn(name = "employeeId"))
+
+    @JsonIgnore
+    private List<Employee> employees;
 
     public Project(){
 

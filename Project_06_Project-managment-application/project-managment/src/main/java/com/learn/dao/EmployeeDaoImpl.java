@@ -1,7 +1,7 @@
-package com.employee.dao;
+package com.learn.dao;
 
-import com.employee.model.Employee;
-import com.employee.repo.EmployeeRepo;
+import com.learn.entities.Employee;
+import com.learn.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,9 +1,9 @@
-package com.project.controller;
+package com.learn.controller;
 
-import com.project.entities.Project;
-import com.project.exception.DuplicateProjectNameException;
-import com.project.exception.RecordNotFoundException;
-import com.project.service.ProjectServiceImpl;
+import com.learn.entities.Project;
+import com.learn.exception.DuplicateProjectNameException;
+import com.learn.exception.RecordNotFoundException;
+import com.learn.service.ProjectServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

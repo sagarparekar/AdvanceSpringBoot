@@ -1,6 +1,6 @@
-package com.employee.repo;
+package com.learn.repo;
 
-import com.employee.model.Employee;
+import com.learn.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package com.project.dao;
+package com.learn.dao;
 
-import com.project.entities.Project;
-import com.project.repo.ProjectRepo;
+import com.learn.entities.Project;
+import com.learn.repo.ProjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

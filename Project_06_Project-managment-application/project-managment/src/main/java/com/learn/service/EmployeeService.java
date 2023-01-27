@@ -1,10 +1,10 @@
-package com.employee.dao;
+package com.learn.service;
 
-import com.employee.model.Employee;
+import com.learn.entities.Employee;
 
 import java.util.List;
 
-public interface EmployeeDao {
+public interface EmployeeService {
 
     public List<Employee> getAllEmployee();
 
@@ -13,6 +13,4 @@ public interface EmployeeDao {
     public Employee upldateEmployee(Employee employee);
 
     public void deleteEmployeeById(long empId);
-
-
 }

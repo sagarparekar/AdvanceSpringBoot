@@ -1,9 +1,6 @@
 package com.learn.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Project {
@@ -12,6 +9,7 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long projectId;
 
+    @Column(unique = true)
     private String name;
 
     private String stage; //NOT STARTED, COMPLETED, INPROGRESS

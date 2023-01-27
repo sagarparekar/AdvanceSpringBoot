@@ -1,6 +1,7 @@
 package com.learn.service;
 
 import com.learn.entities.Project;
+import com.learn.exception.RecordNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,7 @@ public interface ProjectService {
 
     public Project saveProject(Project project);
 
-    public Project updateProject(int projectId);
+    public Project updateProject(int projectId, Project project) throws RecordNotFoundException;
 
     public void deleteProjectById(long projectId);
 

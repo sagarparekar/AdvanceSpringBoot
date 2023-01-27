@@ -11,7 +11,7 @@ public interface ProjectDao {
 
     public Project saveProject(Project project);
 
-    public Project updateProject(int projectId);
+    public Project updateProject( Project project);
 
     public void deleteProjectById(long projectId);
 

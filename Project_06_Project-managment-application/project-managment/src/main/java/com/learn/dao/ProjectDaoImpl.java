@@ -26,8 +26,8 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public Project updateProject(int projectId) {
-        return projectRepoImpl.save(updateProject(projectId));
+    public Project updateProject( Project project) {
+        return projectRepoImpl.save(project);
     }
 
     @Override

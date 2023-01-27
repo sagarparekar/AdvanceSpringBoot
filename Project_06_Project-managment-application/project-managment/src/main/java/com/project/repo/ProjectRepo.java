@@ -1,6 +1,6 @@
-package com.learn.repo;
+package com.project.repo;
 
-import com.learn.entities.Project;
+import com.project.entities.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

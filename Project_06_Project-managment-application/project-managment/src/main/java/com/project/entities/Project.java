@@ -1,4 +1,4 @@
-package com.learn.entities;
+package com.project.entities;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
-package com.learn.dao;
+package com.project.dao;
 
-import com.learn.entities.Project;
+import com.project.entities.Project;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,8 +1,8 @@
-package com.learn.service;
+package com.project.service;
 
-import com.learn.entities.Project;
-import com.learn.exception.DuplicateProjectNameException;
-import com.learn.exception.RecordNotFoundException;
+import com.project.entities.Project;
+import com.project.exception.DuplicateProjectNameException;
+import com.project.exception.RecordNotFoundException;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,7 @@
 package com.learn.service;
 
 import com.learn.entities.Project;
+import com.learn.exception.DuplicateProjectNameException;
 import com.learn.exception.RecordNotFoundException;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public interface ProjectService {
 
     public List<Project> getAllprojects();
 
-    public Project saveProject(Project project);
+    public Project saveProject(Project project) throws DuplicateProjectNameException;
 
     public Project updateProject(int projectId, Project project) throws RecordNotFoundException;
 

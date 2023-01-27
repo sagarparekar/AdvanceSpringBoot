@@ -2,11 +2,14 @@ package com.learn.service;
 
 import com.learn.dao.ProjectDaoImpl;
 import com.learn.entities.Project;
+import com.learn.exception.DuplicateProjectNameException;
 import com.learn.exception.RecordNotFoundException;
+import com.learn.repo.ProjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -15,6 +18,9 @@ public class ProjectServiceImpl implements ProjectService{
     @Autowired
     ProjectDaoImpl projectDaoImpl;
 
+    @Autowired
+    ProjectRepo projectRepo;
+
 
     @Override
     public List<Project> getAllprojects() {
@@ -22,7 +28,11 @@ public class ProjectServiceImpl implements ProjectService{
     }
 
     @Override
-    public Project saveProject(Project project) {
+    public Project saveProject(Project project) throws DuplicateProjectNameException {
+        Project project1=projectRepo.getProjectByprojectName(project.getProjectName());
+        if(Objects.nonNull(project1)){
+            throw new DuplicateProjectNameException("Duplicate field name found Project Name = "+project.getProjectName());
+        }
         return projectDaoImpl.saveProject(project);
     }
 

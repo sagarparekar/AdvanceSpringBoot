@@ -22,7 +22,6 @@ import com.patient.repository.UserRepository;
 
 @EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
-
 public class ApplicationSecurity extends WebSecurityConfigurerAdapter{
 	
 @Autowired private UserRepository userRepo;

@@ -21,14 +21,9 @@ import com.patient.service.UserService;
 @RestController
 @CrossOrigin("*")
 public class UserController {
-	
-	
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
-
-
 	@Autowired
 	private UserService service;
-
 	@PutMapping("/users")
 	public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
 		log.info("User : "+user);

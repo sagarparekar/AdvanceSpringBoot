@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "b9a53690-e78d-4cf3-bce1-81463de0929f",
+		"name": "Schneider",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"Test1\",\r\n    \"lastName\":\"Tannie\",\r\n    \"username\":\"Test1\",\r\n    \"password\":\"test@123\",\r\n    \"role\":\"AP ANALYST\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/createUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"createUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"appuser1\",\r\n    \"password\":\"appuser1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/schneider/client/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"schneider",
+						"client",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AcknowlegeSubmitInvoice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNSxhcHB1c2VyMSIsImlzcyI6IkNvZGVKYXZhIiwicm9sZXMiOiJBUiBBTkFMWVNUIiwiaWF0IjoxNjc3NTU3MjY1LCJleHAiOjE2Nzc2NDM2NjV9.Qx8HEgBraD1LPrpEYZU44DCc-QJVq8vYT45q_RWtB3a5aLLZNSv-arYTYoUZn5TOTJ1qbl1xt2V-5Dfli0zlpQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"version\": \"1.1\",\r\n  \"tranDtls\": {\r\n    \"taxSch\": \"GST\",\r\n    \"supTyp\": \"B2B\",\r\n    \"regRev\": \"Y\",\r\n    \"ecmGstin\": null,\r\n    \"igstOnIntra\": \"N\"\r\n  },\r\n  \"docDtls\": {\r\n    \"typ\": \"INV\",\r\n    \"no\": \"DOC/001\",\r\n    \"dt\": \"18/08/2020\"\r\n  },\r\n  \"sellerDtls\": {\r\n    \"gstin\": \"37ARZPT4384Q1MT\",\r\n    \"lglNm\": \"NIC company pvt ltd\",\r\n    \"trdNm\": \"NIC Industries\",\r\n    \"addr1\": \"5th block, kuvempu layout\",\r\n    \"addr2\": \"kuvempu layout\",\r\n    \"loc\": \"GANDHINAGAR\",\r\n    \"pin\": 518001,\r\n    \"stcd\": \"37\",\r\n    \"pn\": \"9000000000\",\r\n    \"em\": \"abc@gmail.com\"\r\n  },\r\n  \"buyerDtls\": {\r\n    \"gstin\": \"29AWGPV7107B1Z1\",\r\n    \"lglNm\": \"XYZ company pvt ltd\",\r\n    \"trdNm\": \"XYZ Industries\",\r\n    \"pos\": \"12\",\r\n    \"addr1\": \"7th block, kuvempu layout\",\r\n    \"addr2\": \"kuvempu layout\",\r\n    \"loc\": \"GANDHINAGAR\",\r\n    \"pin\": 562160,\r\n    \"stcd\": \"29\",\r\n    \"ph\": \"91111111111\",\r\n    \"em\": \"xyz@yahoo.com\"\r\n  },\r\n  \"dispDtls\": {\r\n    \"nm\": \"ABC company pvt ltd\",\r\n    \"addr1\": \"7th block, kuvempu layout\",\r\n    \"addr2\": \"kuvempu layout\",\r\n    \"loc\": \"Banagalore\",\r\n    \"pin\": 562160,\r\n    \"stcd\": \"29\"\r\n  },\r\n  \"shipDtls\": {\r\n    \"gstin\": \"29AWGPV7107B1Z1\",\r\n    \"lglNm\": \"CBE company pvt ltd\",\r\n    \"trdNm\": \"kuvempu layout\",\r\n    \"addr1\": \"7th block, kuvempu layout\",\r\n    \"addr2\": \"kuvempu layout\",\r\n    \"loc\": \"Banagalore\",\r\n    \"pin\": 562160,\r\n    \"stcd\": \"29\"\r\n  },\r\n  \"itemList\": [\r\n    {\r\n      \"slNo\": \"1\",\r\n      \"prdDesc\": \"Rice\",\r\n      \"isServc\": \"N\",\r\n      \"hsnCd\": \"1001\",\r\n      \"barcde\": \"123456\",\r\n      \"qty\": 100.345,\r\n      \"freeQty\": 10,\r\n      \"unit\": \"BAG\",\r\n      \"unitPrice\": 99.545,\r\n      \"totAmt\": 9988.84,\r\n      \"discount\": 10,\r\n      \"preTaxVal\": 1,\r\n      \"assAmt\": 9978.84,\r\n      \"gstRt\": 12.0,\r\n      \"igstAmt\": 1197.46,\r\n      \"cgstAmt\": 0,\r\n      \"sgstAmt\": 0,\r\n      \"cesRt\": 5,\r\n      \"cesAmt\": 498.94,\r\n      \"cesNonAdvlAmt\": 10,\r\n      \"stateCesRt\": 12,\r\n      \"stateCesAmt\": 1197.46,\r\n      \"stateCesNonAdvlAmt\": 5,\r\n      \"othChrg\": 10,\r\n      \"totItemVal\": 12897.7,\r\n      \"ordLineRef\": \"3256\",\r\n      \"orgCntry\": \"AG\",\r\n      \"prdSlNo\": \"12345\",\r\n      \"bchDtls\": {\r\n        \"nm\": \"123456\",\r\n        \"expDt\": \"01/08/2020\",\r\n        \"wrDt\": \"01/09/2020\"\r\n      },\r\n      \"attribDtls\": [\r\n        {\r\n          \"nm\": \"Rice\",\r\n          \"val\": \"10000\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"valDtls\": {\r\n    \"assVal\": 9978.84,\r\n    \"cgstVal\": 0,\r\n    \"sgstVal\": 0,\r\n    \"igstVal\": 1197.46,\r\n    \"cesVal\": 508.94,\r\n    \"stCesVal\": 1202.46,\r\n    \"discount\": 10,\r\n    \"othChrg\": 20,\r\n    \"rndOffAmt\": 0.3,\r\n    \"totInvVal\": 12908,\r\n    \"totInvValFc\": 12897.7\r\n  },\r\n  \"payDtls\": {\r\n    \"nm\": \"ABCDE\",\r\n    \"accDet\": \"5697389713210\",\r\n    \"mode\": \"Cash\",\r\n    \"finInsBr\": \"SBIN11000\",\r\n    \"payTerm\": \"100\",\r\n    \"payInstr\": \"Gift\",\r\n    \"crTrn\": \"test\",\r\n    \"dirDr\": \"test\",\r\n    \"crDay\": 100,\r\n    \"paidAmt\": 10000,\r\n    \"paymtDue\": 5000\r\n  },\r\n  \"refDtls\": {\r\n    \"invRm\": \"TEST\",\r\n    \"docPerdDtls\": {\r\n      \"invStDt\": \"01/08/2020\",\r\n      \"invEndDt\": \"01/09/2020\"\r\n    },\r\n    \"precDocDtls\": [\r\n      {\r\n        \"invNo\": \"DOC/002\",\r\n        \"invDt\": \"01/08/2020\",\r\n        \"othRefNo\": \"123456\"\r\n      }\r\n    ],\r\n    \"contrDtls\": [\r\n      {\r\n        \"recAdvRefr\": \"Doc/003\",\r\n       \"recAdvDt\": \"01/08/2020\",\r\n        \"tendRefr\": \"Abc001\",\r\n        \"contrRefr\": \"Co123\",\r\n        \"extRefr\": \"Yo456\",\r\n        \"projRefr\": \"Doc-456\",\r\n        \"poRefr\": \"Doc-789\",\r\n        \"poRefDt\": \"01/08/2020\"\r\n      }\r\n    ]\r\n  },\r\n  \"addlDocDtls\": [\r\n    {\r\n      \"url\": \"https://einv-apisandbox.nic.in\",\r\n      \"docs\": \"Test Doc\",\r\n      \"info\": \"Document Test\"\r\n    }\r\n  ],\r\n  \"expDtls\": {\r\n    \"shipBNo\": \"A-248\",\r\n    \"shipBDt\": \"01/08/2020\",\r\n    \"port\": \"INABG1\",\r\n    \"refClm\": \"N\",\r\n    \"forCur\": \"AED\",\r\n    \"cntCode\": \"AE\",\r\n    \"expDuty\": null\r\n  },\r\n  \"ewbDtls\": {\r\n    \"transId\": \"12AWGPV7107B1Z1\",\r\n    \"transName\": \"XYZ EXPORTS\",\r\n    \"distance\": 100,\r\n    \"transDocNo\": \"DOC01\",\r\n    \"transDocDt\": \"18/08/2020\",\r\n    \"vehNo\": \"ka123456\",\r\n    \"vehType\": \"R\",\r\n    \"transMode\": \"1\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/schneider/submitinvoice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"schneider",
+						"submitinvoice"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
